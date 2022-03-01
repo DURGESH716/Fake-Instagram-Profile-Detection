@@ -8,7 +8,20 @@ Stacking up your number of Instagram followers can instantly build your brand cr
 
 ### Pre-Requisites / Technologies Used:-
 - Python Programming Language (Intermediate), Statistics, Probability and ANN (Artificial Neural Networks)
-- Libraries: NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn and nltk (natural language toolkit)
+- Libraries: NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn and tensorflow
+
+### Step_1: Dataset Cleaning and Data Exploration:-
+- Dealing with null values and missing values like is.na() to check them
+- Using functions to get familiar with data like info(), describe(), value_counts()
+- Visualizing data using graphs like histogram, count-plot, heatmap, displot, etc.
+
+### Step_2: Data Pre-Processing and Training the Mdoel:-
+- Performing Scaling: A method used to scale the range of independent variables or features of data
+- Performing Normalization: The process of translating data into the range 0 to 1
+
+### Step_3: Measuring the performance of the model:-
+- Using Confusion Matrix: "Compares true value with predicted value"
+- Acheived Accuracy of 0.96 (96%) xand used different classification report.
 
 #### **Show 💗 by ⭐ My Repository**
 
