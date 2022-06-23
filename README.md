@@ -1,5 +1,11 @@
 # "Fake Instagram Profile Detction using ANN"
+
+### What is Instagram?
+Instagram is an photo and video sharing social networking service founded in 2010 by Kevin Systrom and Mike Krieger, and later acquired by American company Facebook Inc. The app allows users to upload media that can be edited with filters and organized by hashtags and geographical tagging.
+
+
 <p align="left"> <img src="https://cdn.wccftech.com/wp-content/uploads/2020/04/Instagram-Not-Following.png" height="350px" /> </p>
+
 
 ### Problem Statement and Business Case:-
 There are millions upon millions of Insta users out there, but organically engaging and attracting followers to your profile takes time. Time that a lot of businesses and entrepreneurs don’t have. Luckily, you can now gain hundreds to thousands of followers instantly - by purchasing them. 
