@@ -21,7 +21,7 @@ Stacking up your number of Instagram followers can instantly build your brand cr
 - Using functions to get familiar with data like info(), describe(), value_counts()
 - Visualizing data using graphs like histogram, count-plot, heatmap, displot, etc.
 
-### Step_2: Data Pre-Processing and Training the Mdoel:-
+### Step_2: Data Pre-Processing and Training the Model:-
 - Performing Scaling: A method used to scale the range of independent variables or features of data
 - Performing Normalization: The process of translating data into the range 0 to 1
 
