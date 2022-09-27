@@ -77,6 +77,7 @@ plt.show()
 plt.figure(figsize=(20, 20))
 cm = instagram_df_train.corr()
 ax = plt.subplot()
+# heatmap for correlation matrix
 sns.heatmap(cm, annot = True, ax = ax)
 plt.show()
 
