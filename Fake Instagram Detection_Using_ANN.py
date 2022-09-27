@@ -186,8 +186,6 @@ for i in y_test:
     test.append(np.argmax(i))
 
 print(classification_report(test, predicted_value))
-# The above command prints the classification report, while comparing the true value with the predicted value
-
 
 plt.figure(figsize=(10, 10))
 cm=confusion_matrix(test, predicted_value)
