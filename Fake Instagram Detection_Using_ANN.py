@@ -1,4 +1,3 @@
-# Importing Libraries and Dataset
 
 import pandas as pd
 import matplotlib.pyplot as plt
