@@ -30,5 +30,4 @@ Stacking up your number of Instagram followers can instantly build your brand cr
 - Acheived Accuracy of 0.96 (96%) xand used different classification report.
 
 #### **Show 💗 by ⭐ My Repository**
-m
 
