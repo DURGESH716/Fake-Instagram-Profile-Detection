@@ -1,33 +1,80 @@
-# "Fake Instagram Profile Detction using ANN"
+# Fake Instagram Profile Detection
 
-### What is Instagram?
-Instagram is an photo and video sharing social networking service founded in 2010 by Kevin Systrom and Mike Krieger, and later acquired by American company Facebook Inc. The app allows users to upload media that can be edited with filters and organized by hashtags and geographical tagging.
+A feed-forward neural network that classifies Instagram accounts as **fake** or **genuine** using profile-level metadata such as username patterns, bio length, and follower counts.
 
+This repository accompanies my Kaggle notebook: [Fake Instagram Profile Detection Model](https://www.kaggle.com/code/durgeshrao9993/fake-instagram-profile-detection-model).
 
-<p align="left"> <img src="https://cdn.wccftech.com/wp-content/uploads/2020/04/Instagram-Not-Following.png" height="350px" /> </p>
+---
 
+## Motivation
 
-### Problem Statement and Business Case:-
-There are millions upon millions of Insta users out there, but organically engaging and attracting followers to your profile takes time. Time that a lot of businesses and entrepreneurs don’t have. Luckily, you can now gain hundreds to thousands of followers instantly - by purchasing them. 
+Fake and bot accounts inflate follower counts, distort engagement metrics, and are often used for spam or scams. This project tests whether simple, publicly visible profile features are enough to flag them automatically.
 
-Stacking up your number of Instagram followers can instantly build your brand credit and get you noticed quick while building relationships and growing your Instagram account. There is also the fact that followers bring more followers! Some businesses benefit by purchasing a small amount of followers, resulting in a quick boost of social media presence.
+## Dataset
 
-### Pre-Requisites / Technologies Used:-
-- Python Programming Language (Intermediate), Statistics, Probability and ANN (Artificial Neural Networks)
-- Libraries: NumPy, Pandas, Matplotlib, Seaborn, Scikit-learn and tensorflow
+<!-- TODO: add the dataset source link and the exact train/test sizes -->
 
-### Step_1: Dataset Cleaning and Data Exploration:-
-- Dealing with null values and missing values like is.na() to check them
-- Using functions to get familiar with data like info(), describe(), value_counts()
-- Visualizing data using graphs like histogram, count-plot, heatmap, displot, etc.
+- **Source:** [Dataset Link](https://www.kaggle.com/code/durgeshrao9993/fake-instagram-profile-detection-model)
+- **Split:** `insta_train.csv` (training) and `insta_test.csv` (held-out test)
+- **Target:** `fake` (1 = fake, 0 = genuine)
+- **Features (11):**
 
-### Step_2: Data Pre-Processing and Training the Model:-
-- Performing Scaling: A method used to scale the range of independent variables or features of data
-- Performing Normalization: The process of translating data into the range 0 to 1
+| Feature | Description |
+|---|---|
+| `profile pic` | Whether the account has a profile picture |
+| `nums/length username` | Ratio of digits to username length |
+| `fullname words` | Number of words in the full name |
+| `nums/length fullname` | Ratio of digits to full-name length |
+| `name==username` | Whether the full name matches the username |
+| `description length` | Bio length in characters |
+| `external URL` | Whether the bio contains a link |
+| `private` | Whether the account is private |
+| `#posts` | Number of posts |
+| `#followers` | Number of followers |
+| `#follows` | Number of accounts followed |
 
-### Step_3: Measuring the performance of the model:-
-- Using Confusion Matrix: "Compares true value with predicted value"
-- Acheived Accuracy of 0.96 (96%) xand used different classification report.
+## Method
 
-#### **Show 💗 by ⭐ My Repository**
+1. **Exploratory analysis:** class balance, missing values, feature distributions, and a correlation heatmap.
+2. **Preprocessing:** features standardized with `StandardScaler`, fit on the training set only to avoid leakage. Labels are one-hot encoded.
+3. **Model:** a fully connected network trained with Adam and categorical cross-entropy for 50 epochs, with 10% of the training data held out for validation.
 
+```
+Input (11) → Dense(50, ReLU) → Dense(150, ReLU) → Dropout(0.3)
+           → Dense(150, ReLU) → Dropout(0.3)
+           → Dense(25, ReLU)  → Dropout(0.3)
+           → Dense(2, Softmax)
+```
+
+## Results
+
+<!-- TODO: fill in from a fresh, clean run of the notebook -->
+
+Evaluated on the held-out test set:
+
+| Metric | Score |
+|---|---|
+| Accuracy | 88% |
+| Precision (fake) | 87% |
+| Recall (fake) | 90% |
+| F1 (fake) | 89% |
+
+## Getting Started
+
+```bash
+git clone https://github.com/DURGESH716/Fake-Instagram-Profile-Detection.git
+cd Fake-Instagram-Profile-Detection
+pip install pandas numpy matplotlib seaborn scikit-learn tensorflow
+```
+
+Then open the notebook and run all cells in order.
+
+## Limitations
+
+- The dataset is small, so results from a single train/test split may not generalize to Instagram at large.
+- The features are static profile metadata. Sophisticated fake accounts that mimic genuine profiles would likely evade this approach.
+- No comparison against simpler baselines (e.g. logistic regression, random forest) is included yet.
+
+## License
+
+MIT
